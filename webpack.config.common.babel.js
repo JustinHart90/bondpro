@@ -9,7 +9,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 module.exports = new WebpackConfig().merge({
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'app.[name].js'
+    filename: 'app.main.js'
   },
   context:  path.join(__dirname,'/app'),
   module: {
@@ -59,7 +59,7 @@ module.exports = new WebpackConfig().merge({
     ]
   },
   plugins: [
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('main.css'),
     new CleanWebpackPlugin(['dist'], {
       root: __dirname,
       verbose: true,
@@ -74,7 +74,15 @@ module.exports = new WebpackConfig().merge({
     new CopyWebpackPlugin([
       {from: 'offline.html', to: 'offline.html'},
       {from: 'service-worker.js', to: 'service-worker.js'},
-      {from: 'manifest.json', to: 'manifest.json'}
+      {from: 'manifest.json', to: 'manifest.json'},
+      {from: 'images/favicon.ico', to: 'images/favicon.ico'},
+      {from: 'images/favicon.png', to: 'images/favicon.png'},
+      {from: 'images/icon-128.png', to: 'images/icon-128.png'},
+      {from: 'images/icon-144.png', to: 'images/icon-144.png'},
+      {from: 'images/icon-152.png', to: 'images/icon-152.png'},
+      {from: 'images/icon-192.png', to: 'images/icon-192.png'},
+      {from: 'images/icon-256.png', to: 'images/icon-256.png'},
+      {from: 'images/icon-512.png', to: 'images/icon-512.png'}
     ])
   ]
 })

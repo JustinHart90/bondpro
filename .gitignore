@@ -7,6 +7,8 @@ yarn-error.log*
 
 .DS_Store
 python-scripts
+firebase.json
+.firebaserc
 
 # Runtime data
 pids
